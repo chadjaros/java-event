@@ -8,8 +8,7 @@ import io.jaros.events.generic.IEventHandler;
  * for subscribing to and unsubscribing from the owner. It cannot raise the event or
  * clear all the children.
  * 
- * For more information on how to use this system, go to: 
- * https://share.amientertainment.com/share/page/site/music/wiki-page?title=Java_EventManager_Guide
+ * For more information on how to use this system, see README.md
  * 
  * @author cjaros
  *

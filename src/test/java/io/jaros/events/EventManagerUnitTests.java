@@ -1,5 +1,6 @@
 package io.jaros.events;
 
+import static org.junit.Assert.*;
 import io.jaros.events.generic.IEventHandler;
 import io.jaros.events.util.CollectedEvent;
 
@@ -7,7 +8,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,9 +55,9 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(1, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(_handler1, _eventCollector.get(0).handler);
+        assertEquals(1, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(_handler1, _eventCollector.get(0).handler);
     }
     
     @Test
@@ -66,9 +66,9 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(1, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(_handler2, _eventCollector.get(0).handler);
+        assertEquals(1, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(_handler2, _eventCollector.get(0).handler);
     }
     
     @Test
@@ -78,11 +78,11 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(2, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(_handler1, _eventCollector.get(0).handler);
-        Assert.assertEquals(this, _eventCollector.get(1).sender);
-        Assert.assertEquals(_handler2, _eventCollector.get(1).handler);
+        assertEquals(2, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(_handler1, _eventCollector.get(0).handler);
+        assertEquals(this, _eventCollector.get(1).sender);
+        assertEquals(_handler2, _eventCollector.get(1).handler);
     }
     
     @Test
@@ -109,11 +109,11 @@ public class EventManagerUnitTests {
         }
         catch(RuntimeException ex)
         {
-            Assert.assertEquals("cause an error", ex.getMessage());
+            assertEquals("cause an error", ex.getMessage());
             // this is expected        
         }
         
-        Assert.assertEquals(0, _eventCollector.size());
+        assertEquals(0, _eventCollector.size());
     }
     
     @Test
@@ -122,33 +122,33 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(1, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(_handler1, _eventCollector.get(0).handler);
+        assertEquals(1, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(_handler1, _eventCollector.get(0).handler);
         
         _event.getEvent().subscribe(_handler2);
         
         _event.raise(_eventCollector, new EventArgs());
 
-        Assert.assertEquals(3, _eventCollector.size());
-        Assert.assertEquals(_eventCollector, _eventCollector.get(1).sender);
-        Assert.assertEquals(_handler1, _eventCollector.get(1).handler);
-        Assert.assertEquals(_eventCollector, _eventCollector.get(2).sender);
-        Assert.assertEquals(_handler2, _eventCollector.get(2).handler);
+        assertEquals(3, _eventCollector.size());
+        assertEquals(_eventCollector, _eventCollector.get(1).sender);
+        assertEquals(_handler1, _eventCollector.get(1).handler);
+        assertEquals(_eventCollector, _eventCollector.get(2).sender);
+        assertEquals(_handler2, _eventCollector.get(2).handler);
 
         _event.getEvent().unsubscribe(_handler1);
 
         _event.raise(this, new EventArgs());
 
-        Assert.assertEquals(4, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(3).sender);
-        Assert.assertEquals(_handler2, _eventCollector.get(3).handler);
+        assertEquals(4, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(3).sender);
+        assertEquals(_handler2, _eventCollector.get(3).handler);
         
         _event.getEvent().unsubscribe(_handler2);
         
         _event.raise(this, new EventArgs());
 
-        Assert.assertEquals(4, _eventCollector.size());
+        assertEquals(4, _eventCollector.size());
         
         // Should be a no-op
         _event.getEvent().unsubscribe(_handler1);
@@ -161,17 +161,17 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(2, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(_handler1, _eventCollector.get(0).handler);
-        Assert.assertEquals(this, _eventCollector.get(1).sender);
-        Assert.assertEquals(_handler2, _eventCollector.get(1).handler);
+        assertEquals(2, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(_handler1, _eventCollector.get(0).handler);
+        assertEquals(this, _eventCollector.get(1).sender);
+        assertEquals(_handler2, _eventCollector.get(1).handler);
         
         _event.clearHandlers();
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(2, _eventCollector.size());
+        assertEquals(2, _eventCollector.size());
         
     }
     
@@ -191,9 +191,9 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(1, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(null, _eventCollector.get(0).handler);
+        assertEquals(1, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(null, _eventCollector.get(0).handler);
         
         seh = null;
         
@@ -206,7 +206,7 @@ public class EventManagerUnitTests {
         _event.raise(this, new EventArgs());
         
         // No event is published, the weak reference has been cleared out
-        Assert.assertEquals(1, _eventCollector.size());
+        assertEquals(1, _eventCollector.size());
     }
     
     @Test
@@ -225,9 +225,9 @@ public class EventManagerUnitTests {
         
         _event.raise(this, new EventArgs());
         
-        Assert.assertEquals(1, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(0).sender);
-        Assert.assertEquals(null, _eventCollector.get(0).handler);
+        assertEquals(1, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(0).sender);
+        assertEquals(null, _eventCollector.get(0).handler);
         
         seh = null;
         
@@ -240,9 +240,9 @@ public class EventManagerUnitTests {
         _event.raise(this, new EventArgs());
         
         // The event is published, the strong reference has not been cleaned up
-        Assert.assertEquals(2, _eventCollector.size());
-        Assert.assertEquals(this, _eventCollector.get(1).sender);
-        Assert.assertEquals(null, _eventCollector.get(1).handler);
+        assertEquals(2, _eventCollector.size());
+        assertEquals(this, _eventCollector.get(1).sender);
+        assertEquals(null, _eventCollector.get(1).handler);
     }
     
 }

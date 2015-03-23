@@ -17,9 +17,8 @@ import io.jaros.events.generic.IEventHandler;
  * generic, with the generic parameter being a payload of information that will
  * be sent to the observers when an event is raised.
  * 
- * For more information on how to use this system, go to: 
- * https://share.amientertainment.com/share/page/site/music/wiki-page?title=Java_EventManager_Guide
- * and check out io.jaros.events.test.util.NotifyingInteger
+ * For more information on how to use this system, see README.md
+ * and check out {@link io.jaros.events.test.util.NotifyingInteger}
  * 
  * @author cjaros
  *
