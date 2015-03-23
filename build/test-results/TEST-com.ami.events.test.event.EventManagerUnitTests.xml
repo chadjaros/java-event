@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.jaros.events.test.event.EventManagerUnitTests" tests="18" skipped="0" failures="0" errors="0" timestamp="2015-03-23T04:06:49" hostname="jaros" time="1.288">
+  <properties/>
+  <testcase name="testSetupAndTeardown" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.01"/>
+  <testcase name="testSubscribeStrong" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.52"/>
+  <testcase name="testSubscribeWeak" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.13"/>
+  <testcase name="testRaiseEvent" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testClearSubscriptions" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testSubscribeAndUnsubscribe" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testMultipleRaise" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testSubscribeRaiseEvent" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testRaiseWithException" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testSetupAndTeardown" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testSubscribeStrong" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.528"/>
+  <testcase name="testSubscribeWeak" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.1"/>
+  <testcase name="testRaiseEvent" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testClearSubscriptions" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testSubscribeAndUnsubscribe" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testMultipleRaise" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testSubscribeRaiseEvent" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <testcase name="testRaiseWithException" classname="io.jaros.events.test.event.EventManagerUnitTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
