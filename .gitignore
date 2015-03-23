@@ -1,7 +1,13 @@
 *.class
+.gradle
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+# Eclipse stuff
+.project
+.classpath
+.settings
 
 # Package Files #
 *.jar
