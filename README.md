@@ -4,11 +4,9 @@ C# like events for Java
 This java-event system is an implementation of a generic observer pattern for java objects. It is modeled after the way C# events function. The EventManager maintains the list of observers, and allows others to publish events to those observers via the raise(Object sender, T args) method. The EventManager is generic, with the generic parameter being a payload of information that will be sent to the observers when an event is raised.
 
 ### Background on C# events
-[http://msdn.microsoft.com/en-us/library/8627sbea.aspx](http://msdn.microsoft.com/en-us/library/8627sbea.aspx)
-
-[http://msdn.microsoft.com/en-us/library/aa645739.aspx](http://msdn.microsoft.com/en-us/library/aa645739.aspx)
-
-[http://msdn.microsoft.com/en-us/library/awbftdfh.aspx](http://msdn.microsoft.com/en-us/library/awbftdfh.aspx)
+- [http://msdn.microsoft.com/en-us/library/8627sbea.aspx](http://msdn.microsoft.com/en-us/library/8627sbea.aspx)
+- [http://msdn.microsoft.com/en-us/library/aa645739.aspx](http://msdn.microsoft.com/en-us/library/aa645739.aspx)
+- [http://msdn.microsoft.com/en-us/library/awbftdfh.aspx](http://msdn.microsoft.com/en-us/library/awbftdfh.aspx)
 
 ### EventArgs
 
@@ -60,7 +58,6 @@ Typical implementation of a class that uses an event:
                 }
         } 
 
-        
         public void zapNow() {
                 onZap();
         } 
@@ -87,26 +84,24 @@ Typical implementation of a class that could interact with the Zapper:
 	 
 Connect the two objects and let them talk:
 
-	{
-        Zapper zapper = new Zapper();
+    Zapper zapper = new Zapper();
 
-        GetsZapped getZap = new GetsZapped();
+    GetsZapped getZap = new GetsZapped();
 
-        // This will cause nothing to be logged, no subscription has been set up
-        zapper.zapNow();
+    // This will cause nothing to be logged, no subscription has been set up
+    zapper.zapNow();
 
-        // Subscribe getZap to the zapper's zap event
-        zapper.eZap().subscribe(getZap.zapHandler);
+    // Subscribe getZap to the zapper's zap event
+    zapper.eZap().subscribe(getZap.zapHandler);
 
-        // Now the message "I've been zapped" will be logged
-        zapper.zapNow();
+    // Now the message "I've been zapped" will be logged
+    zapper.zapNow();
 
-        // Unsubscribe getZap to the zapper's zap event
-        zapper.eZap().unsubscribe(getZap.zapHandler);
+    // Unsubscribe getZap to the zapper's zap event
+    zapper.eZap().unsubscribe(getZap.zapHandler);
 
-        // This will not cause the message to be logged, the handler has been unsubscribed
-        zapper.zapNow();
-	}
+    // This will not cause the message to be logged, the handler has been unsubscribed
+    zapper.zapNow();
 
 This will output:
 
